@@ -1,24 +1,30 @@
 import React, { useState } from "react";
 import "./App.css";
 import axios from "axios";
+import { SET_WEATHER, CHANGE_CITY } from "./redux/modules/weather";
+import { useSelector, useDispatch } from "react-redux";
 import { Select, MenuItem, Button } from "@material-ui/core";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 
 function App() {
-  const [city, setCity] = useState("");
-  const [weatherData, setWeatherData] = useState(null);
+  // const [city, setCity] = useState("");
+  // const [weatherData, setWeatherData] = useState(null);
   const [unit, setUnit] = useState("metric");
+  const city = useSelector(state => state.city);
+  const weatherData = useSelector(state => state.weatherData);
+  const dispatch = useDispatch();
   const cities = ["New York", "Austin", "Seattle"];
 
   const handleChange = event => {
-    setCity(event.target.value);
+    dispatch({ type: CHANGE_CITY, payload: event.target.value });
   };
 
   const handleUnit = (event, newUnit) => {
     if (newUnit !== null) {
-      setUnit(newUnit);
-      console.log(unit);
+      console.log(newUnit);
+      setUnit(() => newUnit);
     }
+    console.log("UNIT:", unit);
   };
 
   const handleSubmit = async event => {
@@ -28,12 +34,12 @@ function App() {
       const data = await axios.get(
         `http://localhost:5500/weather?city=${city}`
       );
-      setWeatherData(data);
+      dispatch({ type: SET_WEATHER, payload: data });
     } catch (err) {
       // Do something with err
       console.log(err);
     }
-    setCity("");
+    dispatch({ type: CHANGE_CITY, payload: "" });
   };
 
   return (
@@ -73,10 +79,10 @@ function App() {
           aria-label="Change unit"
         >
           <ToggleButton value="metric" aria-label="metric">
-            F
+            C
           </ToggleButton>
           <ToggleButton value="imperial" aria-label="imperial">
-            C
+            F
           </ToggleButton>
         </ToggleButtonGroup>
       </div>
