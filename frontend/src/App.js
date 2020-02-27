@@ -2,21 +2,14 @@ import React, { useState } from "react";
 import "./App.css";
 import axios from "axios";
 import { Select, MenuItem, Button } from "@material-ui/core";
-import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 
 function App() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
-  const [unit, setUnit] = useState("metric");
   const cities = ["New York", "Austin", "Seattle"];
 
   const handleChange = event => {
     setCity(event.target.value);
-  };
-
-  const handleUnit = (event, newUnit) => {
-    setUnit(newUnit);
-    console.log(unit);
   };
 
   const handleSubmit = async event => {
@@ -28,7 +21,6 @@ function App() {
       );
       setWeatherData(data);
     } catch (err) {
-      // Do something with err
       console.log(err);
     }
     setCity("");
@@ -65,24 +57,9 @@ function App() {
       </form>
       {weatherData && (
         <div className="weather-data">
-          <pre>{JSON.stringify(weatherData, null, 2)}</pre>
+          <pre>{JSON.stringify(weatherData, null)}</pre>
         </div>
       )}
-      <div className="toggle-unit-group">
-        <ToggleButtonGroup
-          value={unit}
-          exclusive
-          onChange={handleUnit}
-          aria-label="text formatting"
-        >
-          <ToggleButton value="metric" aria-label="C">
-            C
-          </ToggleButton>
-          <ToggleButton value="imperial" aria-label="F">
-            F
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </div>
     </div>
   );
 }
