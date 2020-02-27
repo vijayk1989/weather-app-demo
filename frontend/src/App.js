@@ -15,8 +15,10 @@ function App() {
   };
 
   const handleUnit = (event, newUnit) => {
-    setUnit(newUnit);
-    console.log(unit);
+    if (newUnit !== null) {
+      setUnit(newUnit);
+      console.log(unit);
+    }
   };
 
   const handleSubmit = async event => {
@@ -73,13 +75,13 @@ function App() {
           value={unit}
           exclusive
           onChange={handleUnit}
-          aria-label="text formatting"
+          aria-label="Change unit"
         >
-          <ToggleButton value="metric" aria-label="C">
-            C
-          </ToggleButton>
-          <ToggleButton value="imperial" aria-label="F">
+          <ToggleButton value="metric" aria-label="metric">
             F
+          </ToggleButton>
+          <ToggleButton value="imperial" aria-label="imperial">
+            C
           </ToggleButton>
         </ToggleButtonGroup>
       </div>
