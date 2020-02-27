@@ -157,3 +157,8 @@ table {
 .toggle-unit-group {
   margin: 1rem 0;
 }
+
+.weather-data {
+  max-width: 1024px;
+  margin: 0 auto;
+}

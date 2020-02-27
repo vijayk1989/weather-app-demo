@@ -65,11 +65,6 @@ function App() {
           Submit
         </Button>
       </form>
-      {weatherData && (
-        <div className="weather-data">
-          <pre>{JSON.stringify(weatherData, null, 2)}</pre>
-        </div>
-      )}
       <div className="toggle-unit-group">
         <ToggleButtonGroup
           value={unit}
@@ -85,6 +80,11 @@ function App() {
           </ToggleButton>
         </ToggleButtonGroup>
       </div>
+      {weatherData && (
+        <div className="weather-data">
+          <pre>{JSON.stringify(weatherData, null, 2)}</pre>
+        </div>
+      )}
     </div>
   );
 }
