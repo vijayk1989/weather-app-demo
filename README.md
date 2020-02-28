@@ -18,4 +18,6 @@
 
 ## Misc.
 
-PS: I am including .env file in GIT for the purposes of this demo
+- I am not including .env file in .gitignore for the purposes of this demo
+- I have added an additional route ('/weather/all') which takes multiple cities as query param
+  - Format: ?cityArray=New York,Boston, eg: http://localhost:5500/weather/all?cityArray=New%20York,%20Boston
