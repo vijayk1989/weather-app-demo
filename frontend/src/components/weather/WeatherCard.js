@@ -53,10 +53,12 @@ const WeatherCard = () => {
               <strong>Speed: </strong>
               {weatherData.wind.speed} mph
             </p>
-            <p>
-              <strong>Gust: </strong>
-              {weatherData.wind.gust} mph
-            </p>
+            {weatherData.wind.gust && (
+              <p>
+                <strong>Gust: </strong>
+                {weatherData.wind.gust} mph
+              </p>
+            )}
           </Card>
         </Container>
       )}
