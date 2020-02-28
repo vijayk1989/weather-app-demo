@@ -10,25 +10,52 @@ const WeatherCard = () => {
       {weatherData && (
         <Container maxWidth="sm" className="weather-data-container">
           <Card className="weather-data-card">
-            <h2>Temperature</h2>
+            <h2>Weather</h2>
             <p>
-              <strong>Current Temp: </strong>
-              {weatherData.main.temp} &#8451;
+              <strong>Type: </strong>
+              {weatherData.weather[0].main}
+            </p>
+            <p>
+              <strong>description: </strong>
+              {weatherData.weather[0].description}
             </p>
           </Card>
           <Card className="weather-data-card">
-            <h2>The Sun</h2>
+            <h2>Temperature</h2>
             <p>
-              <strong>Sunrise: </strong>
-              {new Date(
-                weatherData.sys.sunrise - weatherData.timezone
-              ).toLocaleTimeString("en-US")}
+              <strong>Current Temp: </strong>
+              {weatherData.main.temp} &#8457;
             </p>
             <p>
-              <strong>Sunset: </strong>
-              {new Date(
-                weatherData.sys.sunset - weatherData.timezone
-              ).toLocaleTimeString("en-US")}
+              <strong>Feels Like: </strong>
+              {weatherData.main.feels_like} &#8457;
+            </p>
+            <p>
+              <strong>Min Temp: </strong>
+              {weatherData.main.temp_min} &#8457;
+            </p>
+            <p>
+              <strong>Max Temp: </strong>
+              {weatherData.main.temp_max} &#8457;
+            </p>
+            <p>
+              <strong>Pressure: </strong>
+              {weatherData.main.pressure} &#8457;
+            </p>
+            <p>
+              <strong>Humidity: </strong>
+              {weatherData.main.humidity} &#8457;
+            </p>
+          </Card>
+          <Card className="weather-data-card">
+            <h2>Wind</h2>
+            <p>
+              <strong>Speed: </strong>
+              {weatherData.wind.speed} mph
+            </p>
+            <p>
+              <strong>Gust: </strong>
+              {weatherData.wind.gust} mph
             </p>
           </Card>
         </Container>
