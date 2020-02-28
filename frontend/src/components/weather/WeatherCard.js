@@ -40,11 +40,11 @@ const WeatherCard = () => {
             </p>
             <p>
               <strong>Pressure: </strong>
-              {weatherData.main.pressure} kPA;
+              {weatherData.main.pressure} kPA
             </p>
             <p>
               <strong>Humidity: </strong>
-              {weatherData.main.humidity};
+              {weatherData.main.humidity}
             </p>
           </Card>
           <Card className="weather-data-card">
