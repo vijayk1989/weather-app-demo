@@ -1,4 +1,7 @@
-.weather-data-container {
+.weather-container {
+  margin-top: 1rem;
+}
+.weather-cards-container {
   margin-top: 1rem;
   display: flex;
   justify-content: space-around;

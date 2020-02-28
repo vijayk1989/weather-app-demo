@@ -8,58 +8,61 @@ const WeatherCard = () => {
   return (
     <>
       {weatherData && (
-        <Container maxWidth="sm" className="weather-data-container">
-          <Card className="weather-data-card">
-            <h2>Weather</h2>
-            <p>
-              <strong>Type: </strong>
-              {weatherData.weather[0].main}
-            </p>
-            <p>
-              <strong>description: </strong>
-              {weatherData.weather[0].description}
-            </p>
-          </Card>
-          <Card className="weather-data-card">
-            <h2>Temperature</h2>
-            <p>
-              <strong>Current Temp: </strong>
-              {weatherData.main.temp} &#8457;
-            </p>
-            <p>
-              <strong>Feels Like: </strong>
-              {weatherData.main.feels_like} &#8457;
-            </p>
-            <p>
-              <strong>Min Temp: </strong>
-              {weatherData.main.temp_min} &#8457;
-            </p>
-            <p>
-              <strong>Max Temp: </strong>
-              {weatherData.main.temp_max} &#8457;
-            </p>
-            <p>
-              <strong>Pressure: </strong>
-              {weatherData.main.pressure} kPA
-            </p>
-            <p>
-              <strong>Humidity: </strong>
-              {weatherData.main.humidity}
-            </p>
-          </Card>
-          <Card className="weather-data-card">
-            <h2>Wind</h2>
-            <p>
-              <strong>Speed: </strong>
-              {weatherData.wind.speed} mph
-            </p>
-            {weatherData.wind.gust && (
+        <Container maxWidth="sm" className="weather-container">
+          <h2>{weatherData.name}</h2>
+          <div className="weather-cards-container">
+            <Card className="weather-data-card">
+              <h2>Weather</h2>
               <p>
-                <strong>Gust: </strong>
-                {weatherData.wind.gust} mph
+                <strong>Type: </strong>
+                {weatherData.weather[0].main}
               </p>
-            )}
-          </Card>
+              <p>
+                <strong>description: </strong>
+                {weatherData.weather[0].description}
+              </p>
+            </Card>
+            <Card className="weather-data-card">
+              <h2>Temperature</h2>
+              <p>
+                <strong>Current Temp: </strong>
+                {weatherData.main.temp} &#8457;
+              </p>
+              <p>
+                <strong>Feels Like: </strong>
+                {weatherData.main.feels_like} &#8457;
+              </p>
+              <p>
+                <strong>Min Temp: </strong>
+                {weatherData.main.temp_min} &#8457;
+              </p>
+              <p>
+                <strong>Max Temp: </strong>
+                {weatherData.main.temp_max} &#8457;
+              </p>
+              <p>
+                <strong>Pressure: </strong>
+                {weatherData.main.pressure} kPA
+              </p>
+              <p>
+                <strong>Humidity: </strong>
+                {weatherData.main.humidity}
+              </p>
+            </Card>
+            <Card className="weather-data-card">
+              <h2>Wind</h2>
+              <p>
+                <strong>Speed: </strong>
+                {weatherData.wind.speed} mph
+              </p>
+              {weatherData.wind.gust && (
+                <p>
+                  <strong>Gust: </strong>
+                  {weatherData.wind.gust} mph
+                </p>
+              )}
+            </Card>
+          </div>
         </Container>
       )}
     </>
