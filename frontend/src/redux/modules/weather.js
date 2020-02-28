@@ -2,12 +2,14 @@
 
 const initialState = {
   city: "",
-  weatherData: null
+  weatherData: null,
+  isLoading: false
 };
 
 // Constants
 export const SET_WEATHER = "SET_WEATHER";
 export const CHANGE_CITY = "CHANGE_CITY";
+export const CHANGE_LOADING = "CHANGE_LOADING";
 
 // Actions:
 export const setWeather = payload => {
@@ -18,15 +20,19 @@ export const changeCity = payload => {
   return { type: CHANGE_CITY, payload };
 };
 
+export const changeLoading = () => {
+  return { type: CHANGE_LOADING };
+};
+
 // Reducer
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case SET_WEATHER:
-      console.log("SET WEATHER EVENT FIRED");
       return { ...state, weatherData: action.payload };
     case CHANGE_CITY:
-      console.log("CHANGE CITY EVENT FIRED");
       return { ...state, city: action.payload };
+    case CHANGE_LOADING:
+      return { ...state, isLoading: !state.isLoading };
     default:
       return state;
   }

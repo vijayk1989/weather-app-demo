@@ -1,0 +1,13 @@
+.weather-data-container {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.weather-data-card {
+  max-width: 300px;
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.2rem;
+}
