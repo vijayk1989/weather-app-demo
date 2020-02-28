@@ -1,5 +1,7 @@
 # How to get the app working
 
+- Clone repo
+
 ## npm install
 
 - cd into backend and `npm install`
@@ -12,6 +14,7 @@
 ## Run app
 
 - cd into backend and `npm start`
+- go to localhost:5500 on the browser to see the app running
 
 ## Misc.
 
