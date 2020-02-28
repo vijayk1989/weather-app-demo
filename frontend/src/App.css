@@ -140,16 +140,3 @@ table {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-
-.city-form {
-  min-width: 250px;
-  width: 250px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
-}
-
-.cities-select {
-  min-width: 120px;
-}

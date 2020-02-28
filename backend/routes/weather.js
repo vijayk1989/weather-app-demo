@@ -6,7 +6,7 @@ const WEATHER_ACCESS_KEY = process.env.WEATHER_ACCESS_KEY || '';
 
 router.get('/', async (req, res) => {
   const city = req.query.city ? req.query.city : 'London';
-  const unit = req.query.unit ? req.query.unit : 'metric';
+  const unit = req.query.unit ? req.query.unit : 'imperial';
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${WEATHER_ACCESS_KEY}`;
   try {
     const weather = await axios.get(url);
